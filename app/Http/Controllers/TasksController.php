@@ -49,12 +49,14 @@ class TasksController extends Controller
     {
         // バリデーション
         $request->validate([
+            'user_id' => 'required|max:255',   // 追加
             'status' => 'required|max:10',   // 追加
             'content' => 'required|max:255',
         ]);
         
         // タスクを作成
         $task = new Task;
+        $task->user_id = $request->user_id;
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
@@ -108,6 +110,7 @@ class TasksController extends Controller
     {
         // バリデーション
         $request->validate([
+            'user_id' => 'required|max:255',   // 追加
             'status' => 'required|max:10',   // 追加
             'content' => 'required|max:255',
         ]);
@@ -115,6 +118,7 @@ class TasksController extends Controller
         // idの値でタスクを検索して取得
         $task = Task::findOrFail($id);
         // タスクを更新
+        $task->user_id = $request->user_id;
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
