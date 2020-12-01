@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>メッセージ一覧</h1>
+    <h1></h1>
 
     @if (count($tasks) > 0)
         <table class="table table-striped">
@@ -32,4 +32,4 @@
     {!! link_to_route('tasks.create', '新規タスクの投稿', [], ['class' => 'btn btn-primary']) !!}
 
 
-@endsection
+@endsection 
