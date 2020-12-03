@@ -5,6 +5,7 @@
                     <div>
                         {{-- 投稿内容 --}}
                         <p class="mb-0">{!! nl2br(e($tasks->content)) !!}</p>
+                        <p class="mb-0">{!! nl2br(e($tasks->status)) !!}</p>
                     </div>
                     <div>
                         @if (Auth::id() == $task->user_id)
