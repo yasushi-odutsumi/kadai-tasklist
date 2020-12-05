@@ -114,9 +114,9 @@ class TasksController extends Controller
     {
         // idの値でタスクを検索して取得
         $task = Task::findOrFail($id);
-        /*if (\Auth::id() !== $task->user_id) {
+        if (\Auth::id() !== $task->user_id) {
             return redirect('/');
-        } */
+        } 
         // タスク編集ビューでそれを表示
         return view('tasks.edit', [
             'task' => $task,
@@ -160,9 +160,9 @@ class TasksController extends Controller
     public function destroy($id)
     {
         $task = Task::findOrFail($id);
-        /*if (\Auth::id() !== $task->user_id) {
+        if (\Auth::id() !== $task->user_id) {
             return redirect('/');
-        }*/
+        }
         
         $task->delete();
 
