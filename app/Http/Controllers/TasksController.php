@@ -94,9 +94,9 @@ class TasksController extends Controller
     {
         // idの値でタスクを検索して取得
         $task = Task::FindOrFail($id);
-        /*if (\Auth::id() !== $task->user_id) {
+        if (\Auth::id() !== $task->user_id) {
             return redirect('/');
-        }*/
+        }
         
         // タスク詳細ビューでそれを表示
         return view('tasks.show', [
